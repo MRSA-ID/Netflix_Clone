@@ -1,0 +1,60 @@
+/* .widthVideo{
+    width: 265px;
+} */
+
+
+
+details summary::-webkit-details-marker { display: none;  }
+details summary{
+    list-style: none;
+    position: relative;
+    cursor: pointer;
+}
+details summary::before {
+    content: "×";
+    position: absolute;
+    color: #FFF;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1rem;
+    transform: rotate(45deg);
+    top: 1.5rem;
+    left: unset;
+    right: 0.6rem;
+    transition: 0.2s transform ease;
+}
+
+details[open] > summary:before {
+    transform: rotate(90deg);
+    /* color: #F00 !important; */
+    /* transition: color ease 2s, transform ease 1s; */
+}
+
+/* # The Sliding Summary # */
+details { overflow: hidden; }
+@keyframes details-show {
+  from {
+    margin-bottom: -80%;
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+details > *:not(summary) {
+    animation: details-show 500ms ;
+    position: relative;
+    z-index: 1;
+    transition: all 0.5s ;
+    /* color: transparent; */
+    overflow: hidden;
+}
+
+details[open] > *:not(summary) { color: inherit; }
+
+details {
+    /* max-width: 500px; */
+    /* box-sizing: border-box;
+    margin-top: 5px; */
+    color: white;
+    /* backgrounrgb(175, 143, 143)ite; */
+  }
